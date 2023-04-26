@@ -1,0 +1,55 @@
+@startuml
+set namespaceSeparator ::
+
+abstract class "factory_musik::factory_musik.dart::Track" {
+  +String? artist
+  +String? title
+  +String getArtist()
+  +String getTitle()
+}
+
+class "factory_musik::factory_musik.dart::Song" {
+  +String? artist
+  +String? title
+  +String getArtist()
+  +String getTitle()
+}
+
+"factory_musik::factory_musik.dart::Track" <|-- "factory_musik::factory_musik.dart::Song"
+
+class "factory_musik::factory_musik.dart::Podcast" {
+  +String host
+  +String? title
+  +String getArtist()
+  +String getTitle()
+}
+
+"factory_musik::factory_musik.dart::Track" <|-- "factory_musik::factory_musik.dart::Podcast"
+
+abstract class "factory_musik::factory_musik.dart::TrackFactory" {
+  +Track createTrack()
+}
+
+class "factory_musik::factory_musik.dart::SongFactory" {
+  +String artist
+  +String title
+  +Track createTrack()
+}
+
+"factory_musik::factory_musik.dart::TrackFactory" <|-- "factory_musik::factory_musik.dart::SongFactory"
+
+class "factory_musik::factory_musik.dart::PodcastFactory" {
+  +String host
+  +String title
+  +Track createTrack()
+}
+
+"factory_musik::factory_musik.dart::TrackFactory" <|-- "factory_musik::factory_musik.dart::PodcastFactory"
+
+class "factory_musik::factory_musik.dart::MusicApp" {
+  +List<Track> playlist
+  +void addTrack()
+}
+
+
+@enduml
