@@ -1,2 +1,2 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+// Factory Method pattern для створення об'єктів музичних треків у додатку
+// музики на мові Dart:
